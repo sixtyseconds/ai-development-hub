@@ -10,6 +10,17 @@ A centralized project management application to manage AI projects, client featu
 - Feature request management
 - Support ticketing system
 - Customizable client-side widgets
+- User authentication with email verification
+- Profile management
+
+## Authentication Features
+
+- User registration with email verification
+- Login with email and password
+- Handling of expired verification links
+- Ability to resend verification emails
+- Profile creation upon registration
+- Session management
 
 ## Tech Stack
 
@@ -30,8 +41,8 @@ A centralized project management application to manage AI projects, client featu
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ai-project-hub.git
-   cd ai-project-hub
+   git clone https://github.com/sixtyseconds/ai-development-hub.git
+   cd ai-development-hub
    ```
 
 2. Install dependencies:
@@ -60,9 +71,37 @@ A centralized project management application to manage AI projects, client featu
 
 - `/app` - Next.js app directory containing pages and layouts
 - `/components` - Reusable UI components
+- `/contexts` - React context providers (e.g., AuthContext)
 - `/utils` - Utility functions and configurations
+- `/scripts` - Database setup scripts
 - `/public` - Static assets
-- `/tests` - Test files
+
+## Database Setup
+
+The application automatically checks for the required database tables on startup. If they don't exist, it attempts to create them. You can also manually run the SQL script in the `/scripts` directory to set up the database schema in Supabase.
+
+## Authentication Flow
+
+1. **Registration**: Users register with email, password, and full name
+2. **Email Verification**: A verification email is sent to the user
+3. **Verification**: User clicks the verification link to verify their email
+4. **Login**: After verification, users can log in to access the dashboard
+
+If a verification link expires, users can request a new one from the verification error page or the login page.
+
+## Development
+
+This project uses the following development workflow:
+
+1. `main` branch contains production-ready code
+2. `development` branch is used for active development
+3. Feature branches are created from `development` for specific features
+
+To contribute:
+
+1. Create a feature branch from `development`
+2. Make your changes
+3. Submit a pull request to merge back into `development`
 
 ## Deployment
 
@@ -72,14 +111,6 @@ This application can be deployed to Vercel with minimal configuration:
 2. Import the project in Vercel
 3. Add your environment variables in the Vercel dashboard
 4. Deploy!
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
