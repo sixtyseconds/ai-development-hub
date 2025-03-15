@@ -1,8 +1,7 @@
-import { createClient } from '@supabase/supabase-js';
-import { Database } from './supabase-types';
+import { supabase } from './supabaseClient';
 
-// Initialize Supabase client using environment variables
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+// Re-export the optimized Supabase client
+export { supabase };
 
-export const supabase = createClient<Database>(supabaseUrl, supabaseKey); 
+// Export other utilities from supabaseClient
+export * from './supabaseClient'; 
